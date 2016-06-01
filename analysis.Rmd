@@ -1,0 +1,30 @@
+
+
+```{r}
+setwd("~/github/NSF_award_study")
+list.files()
+tb = read.csv("workshop-awards.csv")
+str(tb)
+length(unique(tb$AwardNumber)) #Award number is unique. 
+```
+
+```{r}
+sub1 = tb[grep("shop", tb$Title), ]
+sub2 = tb[grep("eeting", as.character( tb$Title)), ]
+sub3 = tb[grep("biology", as.character( tb$Title)), ]
+sub3$Title
+#sub4 = tb[grep("systems", as.character( tb$Title)), ] #bad idea
+sub4 = tb[grep("quantitative biology", as.character( tb$Abstract)), ] 
+sub4$Title
+sub5 = tb[grep("data driven", as.character( tb$Abstract)), ] 
+sub5$Title
+sub5 = tb[grep("computational biology", as.character( tb$Abstract)), ] 
+sub5[, c("AwardNumber","Title", "NSFDirectorate")]
+sub5 = tb[grep("computing", as.character( tb$Abstract)), ] 
+sub5b = sub5[grep("workshop", as.character( sub5$Abstract)), ]
+sub5c = sub5b[grep("biology", as.character( sub5b$Abstract)), ]
+sub5c[, c("AwardNumber","Title", "NSFDirectorate")]
+```
+
+
+
